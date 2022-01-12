@@ -28,6 +28,7 @@ use InfinityCore\Core\{Application, ModelBase, RouterBase, ViewBase};
 $app = new Application();
 $view = new ViewBase();
 $model = new ModelBase();
+
 $router = new RouterBase([
     'paths' => [
         'controllers' => 'application/controllers',
@@ -38,9 +39,9 @@ $router = new RouterBase([
 ]);
 
 $router->get('/', 'HomeController@index');
-$router->get('/about', 'HomeController@about');
+$router->get('/about', 'HomeController@about'); //505 - Not Implemented
 
-//e.g test
+//e.g. test 404 - Not Found
 $router->error(function () use ($view) {
     $view->renderTwig('errors/_404', [
         'statusCode' => '404',
@@ -49,4 +50,4 @@ $router->error(function () use ($view) {
     ]);
 });
 
-$router->run();
+$router->run(); // run the router
