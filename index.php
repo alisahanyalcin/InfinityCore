@@ -34,7 +34,7 @@ $router = new RouterBase([
         'controllers' => 'application/controllers',
     ],
     'namespaces' => [
-        'controllers' => 'InfinityCore\Application\Controllers\\'
+        'controllers' => 'InfinityCore\Application\controllers\\'
     ]
 ]);
 
