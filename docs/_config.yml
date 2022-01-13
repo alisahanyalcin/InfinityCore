@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+remote_theme: lewismiddleton/cayman-dark
 skin: dark
 show_downloads: true
 
