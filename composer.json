@@ -32,7 +32,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "InfinityCore\\": "./"
+            "InfinityCore\\Core\\": "core/",
+            "InfinityCore\\Application\\": "application/"
         }
     },
     "require": {

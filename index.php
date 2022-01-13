@@ -26,10 +26,8 @@ require __DIR__ . '/vendor/autoload.php';
 use InfinityCore\Core\{Application, ModelBase, RouterBase, ViewBase};
 
 $app = new Application();
-$view = new ViewBase();
 $model = new ModelBase();
-
-$router = new RouterBase([
+$router =  new RouterBase([
     'paths' => [
         'controllers' => 'application/controllers',
     ],
@@ -37,6 +35,7 @@ $router = new RouterBase([
         'controllers' => 'InfinityCore\Application\controllers\\'
     ]
 ]);
+$view = new ViewBase();
 
 $router->get('/', 'HomeController@index');
 $router->get('/about', 'HomeController@about'); //505 - Not Implemented
