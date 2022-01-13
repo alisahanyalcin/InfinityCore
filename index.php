@@ -38,6 +38,7 @@ $router =  new RouterBase([
 $view = new ViewBase();
 
 $router->get('/', 'HomeController@index');
+$router->get('/test', 'HomeController@test'); //505 - Not Implemented
 $router->get('/about', 'HomeController@about'); //505 - Not Implemented
 
 //e.g. test 404 - Not Found
