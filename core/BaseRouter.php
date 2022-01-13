@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class RouterBase
+ * Class BaseRouter
  *
  * @method $this any($route, $callback, array $options = [])
  * @method $this get($route, $callback, array $options = [])
@@ -30,7 +30,7 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @package Buki
  */
-class RouterBase
+class BaseRouter
 {
     /**
      * Router Version

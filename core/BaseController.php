@@ -2,16 +2,16 @@
 
 namespace InfinityCore\Core;
 
-class ControllerBase
+class BaseController
 {
-    protected ViewBase $view;
+    protected BaseView $view;
 
     /**
-     * ControllerBase constructor.
+     * BaseController constructor.
      * @return void
      */
     public function viewLoad(): void
     {
-        $this->view = new ViewBase();
+        $this->view = new BaseView();
     }
 }

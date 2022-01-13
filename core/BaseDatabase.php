@@ -2,7 +2,7 @@
 
 namespace InfinityCore\Core;
 
-class DatabaseBase
+class BaseDatabase
 {
 
 }

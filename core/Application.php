@@ -1,7 +1,7 @@
 <?php
 
 namespace InfinityCore\Core;
-use InfinityCore\Core\{ModelBase, RouterBase, ViewBase};
+use InfinityCore\Core\{BaseModel, BaseRouter, BaseView};
 
 class Application
 {
@@ -11,9 +11,9 @@ class Application
 //        echo 'Application is running';
     }
 
-    public function router(): RouterBase
+    public function router(): BaseRouter
     {
-        return new RouterBase([
+        return new BaseRouter([
             'paths' => [
                 'controllers' => 'application/controllers',
             ],
@@ -23,13 +23,13 @@ class Application
         ]);
     }
 
-    public function model(): ModelBase
+    public function model(): BaseModel
     {
-        return new ModelBase();
+        return new BaseModel();
     }
 
-    public function view(): ViewBase
+    public function view(): BaseView
     {
-        return new ViewBase();
+        return new BaseView();
     }
 }

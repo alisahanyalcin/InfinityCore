@@ -2,10 +2,10 @@
 
 namespace InfinityCore\Core;
 
-class ModelBase
+class BaseModel
 {
     public function __construct()
     {
-//        echo 'ModelBase constructor';
+//        echo 'BaseModel constructor';
     }
 }

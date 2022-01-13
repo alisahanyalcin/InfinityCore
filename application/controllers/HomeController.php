@@ -1,9 +1,9 @@
 <?php
 namespace InfinityCore\Application\controllers;
 
-use InfinityCore\Core\ControllerBase;
+use InfinityCore\Core\BaseController;
 
-class HomeController extends ControllerBase
+class HomeController extends BaseController
 {
     public function __construct()
     {

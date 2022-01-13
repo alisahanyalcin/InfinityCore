@@ -2,7 +2,7 @@
 
 namespace InfinityCore\Core\Router;
 
-use InfinityCore\Core\ViewBase;
+use InfinityCore\Core\BaseView;
 
 class RouterException
 {
@@ -16,7 +16,7 @@ class RouterException
     public function __construct(string $message, int $statusCode = 500)
     {
         http_response_code($statusCode);
-        $view = new ViewBase();
+        $view = new BaseView();
         $view->renderTwig('errors/_500', [
             'messageTitle' => "Opps! An error occurred.",
             'message' => $message,

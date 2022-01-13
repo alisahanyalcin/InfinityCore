@@ -9,7 +9,7 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
 
-class ViewBase
+class BaseView
 {
     /**
      * Render a view file
@@ -45,16 +45,6 @@ class ViewBase
      */
     public static function renderTwig(string $template, array $args = [])
     {
-//        static $twig = null;
-//
-//        if ($twig === null) {
-//            $loader = new FilesystemLoader(dirname(__DIR__) . '/application/views');
-//            $twig = new Environment($loader);
-//        }
-//
-//        extract($args, EXTR_SKIP);
-//        echo $twig->render($template);
-
         $loader = new FilesystemLoader(dirname(__DIR__) . '/application/views');
         $twig = new Environment($loader);
         echo $twig->render($template.".php", $args);
