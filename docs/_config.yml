@@ -1,6 +1,8 @@
 theme: jekyll-theme-cayman
 skin: dark
 show_downloads: false
+zip_url: https://github.com/alisahanyalcin/InfinityCore/archive/refs/heads/master.zip
+another_url: https://github.com/alisahanyalcin/InfinityCore.git
 
 title: InfinityCore 
 description: InfinityCore is a PHP framework for building web applications.
