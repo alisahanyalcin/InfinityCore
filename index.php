@@ -24,15 +24,22 @@ switch (ENVIRONMENT)
 
 require __DIR__ . '/vendor/autoload.php';
 use InfinityCore\Core\Application;
+use InfinityCore\Core\BaseDatabase;
 
 $app = new Application();
 $view = $app->view();
 $model = $app->model();
 $router = $app->router();
+$database = new BaseDatabase();
 
 $router->get('/', 'HomeController@index');
 $router->get('/test', 'HomeController@test'); //505 - Not Implemented
 $router->get('/about', 'HomeController@about'); //505 - Not Implemented
+$router->get('/add', function () use($database) {
+    echo "email is; ".$database->getOne("users2", 1)['email'];
+    echo "<br>";
+    echo "name is; ".$database->getOne("users2", 1)['name'];
+});
 
 //e.g. test 404 - Not Found
 $router->error(function () use ($view) {
