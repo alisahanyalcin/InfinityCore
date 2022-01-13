@@ -23,19 +23,12 @@ switch (ENVIRONMENT)
 }
 
 require __DIR__ . '/vendor/autoload.php';
-use InfinityCore\Core\{Application, ModelBase, RouterBase, ViewBase};
+use InfinityCore\Core\Application;
 
 $app = new Application();
-$model = new ModelBase();
-$router =  new RouterBase([
-    'paths' => [
-        'controllers' => 'application/controllers',
-    ],
-    'namespaces' => [
-        'controllers' => 'InfinityCore\Application\controllers\\'
-    ]
-]);
-$view = new ViewBase();
+$view = $app->view();
+$model = $app->model();
+$router = $app->router();
 
 $router->get('/', 'HomeController@index');
 $router->get('/test', 'HomeController@test'); //505 - Not Implemented
