@@ -6,11 +6,11 @@
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'reference' => NULL,
-        'name' => 'alisahanyalcin/infinitycore',
+        'name' => 'alisahanyalcin/infinity-core',
         'dev' => true,
     ),
     'versions' => array(
-        'alisahanyalcin/infinitycore' => array(
+        'alisahanyalcin/infinity-core' => array(
             'pretty_version' => '1.0.0',
             'version' => '1.0.0.0',
             'type' => 'project',
