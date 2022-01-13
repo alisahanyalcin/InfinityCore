@@ -1,3 +1,5 @@
+﻿# InfinityCore
+
 ## Routing
 Example routing configuration:
 ```php
