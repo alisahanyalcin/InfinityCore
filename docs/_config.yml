@@ -1,6 +1,6 @@
 theme: jekyll-theme-cayman
 skin: dark
-show_downloads: true
+show_downloads: false
 
 title: InfinityCore 
 description: InfinityCore is a PHP framework for building web applications.
