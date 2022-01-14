@@ -35,7 +35,7 @@ $database = new BaseDatabase();
 $router->get('/', 'HomeController@index');
 $router->get('/test', 'HomeController@test'); //505 - Not Implemented
 $router->get('/about', 'HomeController@about'); //505 - Not Implemented
-$router->get('/add', function () use($database) {
+$router->get('/get', function () use($database) {
     echo "email is; ".$database->getOne("users2", 1)['email'];
     echo "<br>";
     echo "name is; ".$database->getOne("users2", 1)['name'];
