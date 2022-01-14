@@ -8,14 +8,12 @@ class BaseDatabase
 {
     private PDO $db;
 
+    /**
+     * BaseDatabase constructor.
+     */
     public function __construct()
     {
         $this->db = new PDO('mysql:host=localhost;dbname=infinitycore', 'root', '');
-    }
-
-    public function getDb(): PDO
-    {
-        return $this->db;
     }
 
     public function getAll($table): bool|array
@@ -24,7 +22,7 @@ class BaseDatabase
         return $query->fetchAll();
     }
 
-    public function getOne($table, $id)
+    public function getOneByID($table, $id): bool|array
     {
         $query = $this->db->query('SELECT * FROM '.$table.' WHERE id = '.$id);
         return $query->fetch();
@@ -64,5 +62,35 @@ class BaseDatabase
     {
         $query = $this->db->query('SELECT * FROM '.$table.' WHERE '.$column.' = "'.$value.'" ORDER BY '.$order.' '.$by.' LIMIT '.$limit.' OFFSET '.$offset);
         return $query->fetchAll();
+    }
+
+    public function getAllCount($table): int
+    {
+        $query = $this->db->query('SELECT COUNT(*) FROM '.$table);
+        return $query->fetch()[0];
+    }
+
+    public function getAllCountBy($table, $column, $value): int
+    {
+        $query = $this->db->query('SELECT COUNT(*) FROM '.$table.' WHERE '.$column.' = "'.$value.'"');
+        return $query->fetch()[0];
+    }
+
+    public function getAllCountByLike($table, $column, $value): int
+    {
+        $query = $this->db->query('SELECT COUNT(*) FROM '.$table.' WHERE '.$column.' LIKE "%'.$value.'%"');
+        return $query->fetch()[0];
+    }
+
+    public function getAllCountByLikeStart($table, $column, $value): int
+    {
+        $query = $this->db->query('SELECT COUNT(*) FROM '.$table.' WHERE '.$column.' LIKE "'.$value.'%"');
+        return $query->fetch()[0];
+    }
+
+    public function getAllCountByLikeEnd($table, $column, $value): int
+    {
+        $query = $this->db->query('SELECT COUNT(*) FROM '.$table.' WHERE '.$column.' LIKE "%'.$value.'"');
+        return $query->fetch()[0];
     }
 }

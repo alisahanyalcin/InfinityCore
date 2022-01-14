@@ -35,10 +35,12 @@ $database = new BaseDatabase();
 $router->get('/', 'HomeController@index');
 $router->get('/test', 'HomeController@test'); //505 - Not Implemented
 $router->get('/about', 'HomeController@about'); //505 - Not Implemented
-$router->get('/get', function () use($database) {
-    echo "email is; ".$database->getOne("users2", 1)['email'];
-    echo "<br>";
-    echo "name is; ".$database->getOne("users2", 1)['name'];
+
+// e.g. http://localhost/InfinityCore/get-name/1 (GET) - get name of user with id 1
+$router->get('/get-name/:int', function($value) use($database)
+{
+    echo $database->getOneByID("users2", $value)["name"];
+//    var_dump($database->getOneByID("users2", $value));
 });
 
 //e.g. test 404 - Not Found
