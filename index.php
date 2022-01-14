@@ -1,5 +1,4 @@
 <?php
-
 const ENVIRONMENT = 'development';
 switch (ENVIRONMENT)
 {
