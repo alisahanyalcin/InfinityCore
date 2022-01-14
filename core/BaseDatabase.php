@@ -3,9 +3,12 @@
 namespace InfinityCore\Core;
 
 use PDO;
+use PDOException;
 
+//TODO: Add config variables for database connection.
 class BaseDatabase
 {
+    // Database connection
     private PDO $db;
 
     /**
@@ -13,7 +16,14 @@ class BaseDatabase
      */
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=infinitycore', 'root', '');
+        try {
+            $this->db = new PDO('mysql:host=localhost;dbname=infinitycore', 'root', '');
+        }
+        catch (PDOException $e) {
+            # Write into log
+            echo $this->ExceptionLog($e->getMessage());
+            die();
+        }
     }
 
     public function getAll($table): bool|array
@@ -92,5 +102,30 @@ class BaseDatabase
     {
         $query = $this->db->query('SELECT COUNT(*) FROM '.$table.' WHERE '.$column.' LIKE "%'.$value.'"');
         return $query->fetch()[0];
+    }
+
+    //TODO: ExceptionLog function will be organized and developed soon. not for the use of the moment.
+    /**
+     * Writes the log and returns the exception
+     *
+     * @param string $message
+     * @param string $sql
+     *
+     * @return string
+     */
+    private function ExceptionLog(string $message, string $sql = ""): string
+    {
+        $exception = 'Unhandled Exception. <br />';
+        $exception .= $message;
+        $exception .= "<br /> You can find the error back in the log.";
+
+        if (!empty($sql)) {
+            # Add the Raw SQL to the Log
+            $message .= "\r\nRaw SQL : " . $sql;
+        }
+        # Write into log
+        $this->log->write($message);
+
+        return $exception;
     }
 }
