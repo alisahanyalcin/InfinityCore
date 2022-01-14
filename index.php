@@ -21,7 +21,7 @@ switch (ENVIRONMENT)
 require __DIR__ . '/vendor/autoload.php';
 use InfinityCore\Core\Application;
 
-$app = new Application();
+$app = new Application(); 
 $view = $app->view();
 $model = $app->model();
 $router = $app->router();
