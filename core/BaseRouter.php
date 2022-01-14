@@ -73,7 +73,7 @@ class BaseRouter
      * @var array $namespaces Namespaces of Controllers and Middlewares files
      */
     protected array $namespaces = [
-        'controllers' => '',
+        'controllers' => 'InfinityCore\Application\controllers\\',
         'middlewares' => '',
     ];
 
@@ -81,7 +81,7 @@ class BaseRouter
      * @var array $path Paths of Controllers and Middlewares files
      */
     protected array $paths = [
-        'controllers' => 'Controllers',
+        'controllers' => 'application/controllers',
         'middlewares' => 'Middlewares',
     ];
 

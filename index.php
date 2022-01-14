@@ -1,9 +1,5 @@
 <?php
-/**
- * development
- * testing
- * production
- */
+
 const ENVIRONMENT = 'development';
 switch (ENVIRONMENT)
 {
@@ -24,17 +20,15 @@ switch (ENVIRONMENT)
 
 require __DIR__ . '/vendor/autoload.php';
 use InfinityCore\Core\Application;
-use InfinityCore\Core\BaseDatabase;
 
 $app = new Application();
 $view = $app->view();
 $model = $app->model();
 $router = $app->router();
-$database = new BaseDatabase();
 
 $router->get('/', 'HomeController@index');
+$router->get('/about', 'HomeController@about'); // return view about page with data from database PDOx class
 $router->get('/test', 'HomeController@test'); //505 - Not Implemented
-$router->get('/about', 'HomeController@about'); //505 - Not Implemented
 
 //e.g. test 404 - Not Found
 $router->error(function () use ($view) {
@@ -44,23 +38,5 @@ $router->error(function () use ($view) {
         'message' => 'Sorry, but the page you were trying to view does not exist.'
     ]);
 });
-
-// e.g. http://localhost/InfinityCore/get-name/1 (GET) - get name of user with id 1
-$router->get('/get-name/:int', function($value) use($database)
-{
-    echo $database->getOneByID("users", $value)["name"];
-//    var_dump($database->getOneByID("users", $value));
-});
-
-// e.g. http://localhost/InfinityCore/get-all-users (GET) - get all users
-$router->get('/get-all-users', function() use($database)
-{
-    $users = $database->getAll("users");
-    foreach($users as $user)
-    {
-        echo $user["name"] . "<br>";
-    }
-});
-
 
 $router->run(); // run the router

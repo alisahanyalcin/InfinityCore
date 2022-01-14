@@ -4,14 +4,14 @@ namespace InfinityCore\Core;
 
 class BaseController
 {
+    protected Application $app;
     protected BaseView $view;
+    protected PDOx\PDOx $PDOx;
 
-    /**
-     * BaseController constructor.
-     * @return void
-     */
-    public function viewLoad(): void
+    public function __construct()
     {
-        $this->view = new BaseView();
+        $this->app = new Application();
+        $this->view = $this->app->view();
+        $this->PDOx = $this->app->PDOx();
     }
 }

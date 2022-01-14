@@ -6,8 +6,6 @@ use DateTime;
 
 class Log
 {
-    //TODO: create a config class and implement a config values like log path, default time zone, etc.
-
     # @string, Log directory name
     private string $path = '/application/logs/';
 
