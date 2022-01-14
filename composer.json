@@ -3,7 +3,7 @@
     "description": "InfinityCore is a PHP framework for building web applications.",
     "homepage": "https://github.com/alisahanyalcin/infinitycore",
     "version": "1.0.0",
-    "type": "library",
+    "type": "project",
     "keywords": ["infinitycore", "framework", "PHP framework", "PHP", "web", "application", "web application", "model view controller", "infinitycore php framework"
     ],
     "bugs": {
