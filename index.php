@@ -48,9 +48,21 @@ $router->error(function () use ($view) {
 // e.g. http://localhost/InfinityCore/get-name/1 (GET) - get name of user with id 1
 $router->get('/get-name/:int', function($value) use($database)
 {
-    echo $database->getOneByID("users2", $value)["name"];
-//    var_dump($database->getOneByID("users2", $value));
+    echo $database->getOneByID("users", $value)["name"];
+//    var_dump($database->getOneByID("users", $value));
 });
+
+// e.g. http://localhost/InfinityCore/get-all-users (GET) - get all users
+$router->get('/get-all-users', function() use($database)
+{
+    $users = $database->getAll("users");
+    foreach($users as $user)
+    {
+        echo $user["name"] . "<br>";
+    }
+});
+
+$file = fopen("test.txt", "w+");
 
 
 $router->run(); // run the router
