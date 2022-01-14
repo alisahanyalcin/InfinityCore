@@ -22,7 +22,7 @@ require __DIR__ . '/vendor/autoload.php';
 use InfinityCore\Core\Application;
 
 $app = new Application();
-$view = $app->view();
+$view = $app->load();
 $model = $app->model();
 $router = $app->router();
 
@@ -32,7 +32,7 @@ $router->get('/test', 'HomeController@test'); //505 - Not Implemented
 
 //e.g. test 404 - Not Found
 $router->error(function () use ($view) {
-    $view->renderTwig('errors/_404', [
+    $view->view('errors/_404', [
         'statusCode' => '404',
         'messageTitle' => 'Page Not Found',
         'message' => 'Sorry, but the page you were trying to view does not exist.'

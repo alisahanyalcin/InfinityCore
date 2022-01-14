@@ -22,7 +22,7 @@ class Pdox
     /**
      * @var mixed Query variables
      */
-    protected $select = '*';
+    protected mixed $select = '*';
     protected $from = null;
     protected $where = null;
     protected $limit = null;
@@ -42,7 +42,7 @@ class Pdox
     /**
      * @var array SQL operators
      */
-    protected $operators = ['=', '!=', '<', '>', '<=', '>=', '<>'];
+    protected array $operators = ['=', '!=', '<', '>', '<=', '>=', '<>'];
 
     /**
      * @var Cache|null
@@ -52,22 +52,22 @@ class Pdox
     /**
      * @var string|null Cache Directory
      */
-    protected $cacheDir = null;
+    protected mixed $cacheDir = null;
 
     /**
      * @var int Total query count
      */
-    protected $queryCount = 0;
+    protected int $queryCount = 0;
 
     /**
      * @var bool
      */
-    protected $debug = true;
+    protected mixed $debug = true;
 
     /**
      * @var int Total transaction count
      */
-    protected $transactionCount = 0;
+    protected int $transactionCount = 0;
 
     /**
      * Pdox constructor.
@@ -116,7 +116,7 @@ class Pdox
      *
      * @return $this
      */
-    public function table($table)
+    public function table($table): static
     {
         if (is_array($table)) {
             $from = '';
@@ -144,7 +144,7 @@ class Pdox
      *
      * @return $this
      */
-    public function select($fields)
+    public function select(array|string $fields): static
     {
         $select = is_array($fields) ? implode(', ', $fields) : $fields;
         $this->optimizeSelect($select);
@@ -153,12 +153,12 @@ class Pdox
     }
 
     /**
-     * @param string      $field
+     * @param string $field
      * @param string|null $name
      *
      * @return $this
      */
-    public function max($field, $name = null)
+    public function max(string $field, string $name = null): static
     {
         $column = 'MAX(' . $field . ')' . (!is_null($name) ? ' AS ' . $name : '');
         $this->optimizeSelect($column);
@@ -167,12 +167,12 @@ class Pdox
     }
 
     /**
-     * @param string      $field
+     * @param string $field
      * @param string|null $name
      *
      * @return $this
      */
-    public function min($field, $name = null)
+    public function min(string $field, string $name = null): static
     {
         $column = 'MIN(' . $field . ')' . (!is_null($name) ? ' AS ' . $name : '');
         $this->optimizeSelect($column);
@@ -181,7 +181,7 @@ class Pdox
     }
 
     /**
-     * @param string      $field
+     * @param string $field
      * @param string|null $name
      *
      * @return $this
@@ -195,7 +195,7 @@ class Pdox
     }
 
     /**
-     * @param string      $field
+     * @param string $field
      * @param string|null $name
      *
      * @return $this
@@ -209,7 +209,7 @@ class Pdox
     }
 
     /**
-     * @param string      $field
+     * @param string $field
      * @param string|null $name
      *
      * @return $this
@@ -223,11 +223,11 @@ class Pdox
     }
 
     /**
-     * @param string      $table
+     * @param string $table
      * @param string|null $field1
      * @param string|null $operator
      * @param string|null $field2
-     * @param string      $type
+     * @param string $type
      *
      * @return $this
      */
@@ -345,7 +345,7 @@ class Pdox
             }
             $where = implode(' ' . $andOr . ' ', $_where);
         } else {
-            if (is_null($where) || empty($where)) {
+            if (empty($where)) {
                 return $this;
             }
 
@@ -1194,12 +1194,12 @@ class Pdox
     /**
      * @param $data
      *
-     * @return string
+     * @return float|int|string
      */
-    public function escape($data)
+    public function escape($data): float|int|string
     {
         return $data === null ? 'NULL' : (
-        is_int($data) || is_float($data) ? $data : $this->pdo->quote($data)
+            is_int($data) || is_float($data) ? $data : $this->pdo->quote($data)
         );
     }
 
@@ -1208,7 +1208,7 @@ class Pdox
      *
      * @return $this
      */
-    public function cache($time)
+    public function cache($time): static
     {
         $this->cache = new Cache($this->cacheDir, $time);
 
@@ -1218,7 +1218,7 @@ class Pdox
     /**
      * @return int
      */
-    public function queryCount()
+    public function queryCount(): int
     {
         return $this->queryCount;
     }
@@ -1226,7 +1226,7 @@ class Pdox
     /**
      * @return string|null
      */
-    public function getQuery()
+    public function getQuery(): ?string
     {
         return $this->query;
     }
@@ -1267,7 +1267,7 @@ class Pdox
      *
      * @return int
      */
-    protected function getFetchType($type)
+    protected function getFetchType($type): int
     {
         return $type === 'class'
             ? PDO::FETCH_CLASS

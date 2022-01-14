@@ -12,20 +12,20 @@ class HomeController extends BaseController
 
     public function index()
     {
-        $this->view->renderTwig('layout/header');
-        $this->view->renderTwig('home', ['name' => 'InfinityCore']);
-        $this->view::renderTwig('layout/footer');
+        $this->load->view('layout/header');
+        $this->load->view('home', ['name' => 'InfinityCore']);
+        $this->load::view('layout/footer');
     }
 
     public function about()
     {
-        $records = $this->PDOx->table('users')
+        $records = $this->db->table('users')
             ->select('id, email, name')
             ->orderBy('id', 'asc')
             ->limit(20)
             ->getAll();
-        $this->view->renderTwig('layout/header');
-        $this->view->renderTwig('about', ['name' => 'About Page', 'records' => $records]);
-        $this->view->renderTwig('layout/footer');
+        $this->load->view('layout/header');
+        $this->load->view('about', ['name' => 'About Page', 'records' => $records]);
+        $this->load->view('layout/footer');
     }
 }

@@ -32,7 +32,7 @@ class Application
         return new BaseModel();
     }
 
-    public function view(): BaseView
+    public function load(): BaseView
     {
         return new BaseView();
     }

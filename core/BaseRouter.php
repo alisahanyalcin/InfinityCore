@@ -33,14 +33,9 @@ use Symfony\Component\HttpFoundation\Response;
 class BaseRouter
 {
     /**
-     * Router Version
-     */
-    const VERSION = '2.3.0';
-
-    /**
      * @var string $baseFolder Pattern definitions for parameters of Route
      */
-    protected $baseFolder;
+    protected string $baseFolder;
 
     /**
      * @var array $routes Routes list
@@ -73,7 +68,7 @@ class BaseRouter
      * @var array $namespaces Namespaces of Controllers and Middlewares files
      */
     protected array $namespaces = [
-        'controllers' => 'InfinityCore\Application\controllers\\',
+        'controllers' => 'InfinityCore\Application\Controllers\\',
         'middlewares' => '',
     ];
 

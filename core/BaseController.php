@@ -11,11 +11,11 @@ class BaseController
     /**
      * @var BaseView $view
      */
-    protected BaseView $view;
+    protected BaseView $load;
     /**
-     * @var PDOx\PDOx $PDOx
+     * @var PDOx\PDOx $db
      */
-    protected PDOx\PDOx $PDOx;
+    protected PDOx\PDOx $db;
 
     /**
      * BaseController constructor.
@@ -23,7 +23,7 @@ class BaseController
     public function __construct()
     {
         $this->app = new Application();
-        $this->view = $this->app->view();
-        $this->PDOx = $this->app->PDOx();
+        $this->load = $this->app->load();
+        $this->db = $this->app->PDOx();
     }
 }
