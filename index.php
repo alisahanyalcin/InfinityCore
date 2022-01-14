@@ -62,7 +62,5 @@ $router->get('/get-all-users', function() use($database)
     }
 });
 
-$file = fopen("test.txt", "w+");
-
 
 $router->run(); // run the router
