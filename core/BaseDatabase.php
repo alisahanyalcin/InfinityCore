@@ -7,11 +7,11 @@ use PDOException;
 use InfinityCore\Core\Log;
 
 //TODO: Add config variables for database connection.
+//TODO: Change BaseDatabase class structure to be more OOP.
 class BaseDatabase
 {
-    // Database connection
-    private PDO $db;
-    protected Log $log;
+    protected PDO $db; //PDO object
+    protected Log $log;//Log class
 
     /**
      * BaseDatabase constructor.
