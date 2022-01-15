@@ -1,17 +1,9 @@
 {
     "name": "alisahanyalcin/infinity-core",
-    "description": "InfinityCore is a PHP framework for building web applications.",
-    "homepage": "https://alisahanyalcin.github.io/InfinityCore/",
-    "version": "1.0.0",
     "type": "project",
+    "description": "InfinityCore is a PHP framework for building web applications.",
     "keywords": ["infinitycore", "framework", "PHP framework", "PHP", "web", "application", "web application", "model view controller", "infinitycore php framework"],
-    "bugs": {
-        "url": "https://github.com/alisahanyalcin/infinitycore/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/alisahanyalcin/infinitycore.git"
-    },
+    "homepage": "https://alisahanyalcin.github.io/InfinityCore/",
     "license": "MIT",
     "authors": [
         {
@@ -21,17 +13,23 @@
             "role": "Developer"
         }
     ],
+    "require": {
+        "php": "^7.3.0",
+        "ext-json": "*",
+        "symfony/http-foundation": "^5.1",
+        "twig/twig": "~3.0",
+        "ext-pdo": "*"
+    },
     "autoload": {
         "psr-4": {
             "InfinityCore\\Application\\": "./application",
             "InfinityCore\\Core\\": "./core"
         }
     },
-    "require": {
-        "php": "^7.3|^8.0",
-        "ext-json": "*",
-        "symfony/http-foundation": "^5.1",
-        "twig/twig": "~3.0",
-        "ext-pdo": "*"
-    }
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }
