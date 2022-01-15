@@ -17,6 +17,8 @@ switch (ENVIRONMENT)
         exit(1); // EXIT_ERROR
 }
 
+const APPPATH = 'application';
+
 require __DIR__ . '/vendor/autoload.php';
 use InfinityCore\Core\Application;
 

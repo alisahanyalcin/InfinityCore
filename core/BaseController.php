@@ -8,10 +8,12 @@ class BaseController
      * @var Application $app
      */
     protected Application $app;
+
     /**
      * @var BaseView $view
      */
     protected BaseView $load;
+
     /**
      * @var PDOx\PDOx $db
      */

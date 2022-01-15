@@ -1,8 +1,5 @@
 <h1>
-    Welcome to
-    {% if name %}
-        {{name}}
-    {% endif %}
+    Welcome to{% if name %} {{name}} {% endif %}
 
 </h1>
 <p>
