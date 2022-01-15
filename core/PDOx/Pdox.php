@@ -110,13 +110,8 @@ class Pdox
 
         return $this->pdo;
     }
-
-    /**
-     * @param $table
-     *
-     * @return $this
-     */
-    public function table($table): static
+    
+    public function table($table)
     {
         if (is_array($table)) {
             $from = '';
@@ -139,12 +134,7 @@ class Pdox
         return $this;
     }
 
-    /**
-     * @param array|string $fields
-     *
-     * @return $this
-     */
-    public function select(array|string $fields): static
+    public function select($fields)
     {
         $select = is_array($fields) ? implode(', ', $fields) : $fields;
         $this->optimizeSelect($select);
@@ -152,13 +142,7 @@ class Pdox
         return $this;
     }
 
-    /**
-     * @param string $field
-     * @param string|null $name
-     *
-     * @return $this
-     */
-    public function max(string $field, string $name = null): static
+    public function max(string $field, string $name = null)
     {
         $column = 'MAX(' . $field . ')' . (!is_null($name) ? ' AS ' . $name : '');
         $this->optimizeSelect($column);
@@ -166,13 +150,7 @@ class Pdox
         return $this;
     }
 
-    /**
-     * @param string $field
-     * @param string|null $name
-     *
-     * @return $this
-     */
-    public function min(string $field, string $name = null): static
+    public function min(string $field, string $name = null)
     {
         $column = 'MIN(' . $field . ')' . (!is_null($name) ? ' AS ' . $name : '');
         $this->optimizeSelect($column);
@@ -1191,24 +1169,14 @@ class Pdox
         return $this->result;
     }
 
-    /**
-     * @param $data
-     *
-     * @return float|int|string
-     */
-    public function escape($data): float|int|string
+    public function escape($data)
     {
         return $data === null ? 'NULL' : (
             is_int($data) || is_float($data) ? $data : $this->pdo->quote($data)
         );
     }
 
-    /**
-     * @param $time
-     *
-     * @return $this
-     */
-    public function cache($time): static
+    public function cache($time)
     {
         $this->cache = new Cache($this->cacheDir, $time);
 
