@@ -1,11 +1,10 @@
 {
     "name": "alisahanyalcin/infinity-core",
     "description": "InfinityCore is a PHP framework for building web applications.",
-    "homepage": "https://github.com/alisahanyalcin/infinitycore",
+    "homepage": "https://alisahanyalcin.github.io/InfinityCore/",
     "version": "1.0.0",
     "type": "project",
-    "keywords": ["infinitycore", "framework", "PHP framework", "PHP", "web", "application", "web application", "model view controller", "infinitycore php framework"
-    ],
+    "keywords": ["infinitycore", "framework", "PHP framework", "PHP", "web", "application", "web application", "model view controller", "infinitycore php framework"],
     "bugs": {
         "url": "https://github.com/alisahanyalcin/infinitycore/issues"
     },
@@ -34,7 +33,5 @@
         "symfony/http-foundation": "^5.1",
         "twig/twig": "~3.0",
         "ext-pdo": "*"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
