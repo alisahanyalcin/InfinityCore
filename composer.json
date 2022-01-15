@@ -35,6 +35,6 @@
         "twig/twig": "~3.0",
         "ext-pdo": "*"
     },
-    "prefer-stable": true,
-    "minimum-stability": "stable"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
