@@ -76,7 +76,7 @@ class BaseRouter
      * @var array $path Paths of Controllers and Middlewares files
      */
     protected array $paths = [
-        'controllers' => 'application/controllers',
+        'controllers' => APPPATH.'/controllers',
         'middlewares' => 'Middlewares',
     ];
 
@@ -146,7 +146,7 @@ class BaseRouter
 
     /**
      * Add route method;
-     * Get, Post, Put, Delete, Patch, Any, Ajax...
+     * Get, Post, Put, Delete, Patch, Any, Ajax
      *
      * @param $method
      * @param $params
