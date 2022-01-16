@@ -1,7 +1,0 @@
-remote_theme: lewismiddleton/cayman-dark
-# remote_theme: "dracula/gh-pages"
-skin: dark
-show_downloads: true
-
-title: InfinityCore 
-description: InfinityCore is a PHP framework for building web applications.

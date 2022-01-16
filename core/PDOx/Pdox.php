@@ -110,7 +110,7 @@ class Pdox
 
         return $this->pdo;
     }
-    
+
     public function table($table)
     {
         if (is_array($table)) {

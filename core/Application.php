@@ -1,10 +1,14 @@
 <?php
 
 namespace InfinityCore\Core;
-use InfinityCore\Core\{BaseModel, BaseRouter, BaseView, PDOx\PDOx, BaseConfig};
+use InfinityCore\Core\{BaseModel, BaseRouter, BaseView, PDOx\PDOx};
 
 class Application
 {
+    public BaseRouter $router;
+    public BaseView $load;
+    public BaseModel $model;
+
     //TODO: create a config class and implement a config values like log path, default time zone and database connection, etc.
     private array $DBConfig = [
         'host'		=> 'localhost',
@@ -17,23 +21,26 @@ class Application
         'prefix'	 => ''
     ];
 
-    public function router(): BaseRouter
+    /**
+     * Application constructor.
+     */
+    public function __construct()
     {
-        return new BaseRouter();
+        $this->router = new BaseRouter();
+        $this->load = new BaseView();
+        $this->model = new BaseModel();
     }
 
-    public function model(): BaseModel
-    {
-        return new BaseModel();
-    }
-
-    public function load(): BaseView
-    {
-        return new BaseView();
-    }
-
+    /**
+     * @return PDOx
+     */
     public function PDOx(): PDOx
     {
         return new PDOx($this->DBConfig);
+    }
+
+    public function run()
+    {
+        $this->router->run();
     }
 }

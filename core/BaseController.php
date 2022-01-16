@@ -25,7 +25,7 @@ class BaseController
     public function __construct()
     {
         $this->app = new Application();
-        $this->load = $this->app->load();
+        $this->load = $this->app->load;
         $this->db = $this->app->PDOx();
     }
 }

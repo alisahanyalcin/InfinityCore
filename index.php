@@ -1,4 +1,15 @@
 <?php
+// Valid PHP Version?
+$minPHPVersion = '7.4';
+if (version_compare(PHP_VERSION, $minPHPVersion, '<'))
+{
+    die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . PHP_VERSION);
+}
+unset($minPHPVersion);
+
+require __DIR__ . '/vendor/autoload.php';
+use InfinityCore\Core\Application;
+
 const ENVIRONMENT = 'development';
 switch (ENVIRONMENT)
 {
@@ -18,26 +29,21 @@ switch (ENVIRONMENT)
 }
 
 const APPPATH = 'application';
-
-require __DIR__ . '/vendor/autoload.php';
-use InfinityCore\Core\Application;
+const COREPATH = 'core';
 
 $app = new Application();
-$view = $app->load();
-$model = $app->model();
-$router = $app->router();
 
-$router->get('/', 'HomeController@index');
-$router->get('/about', 'HomeController@about'); // return view about page with data from database PDOx class
-$router->get('/test', 'HomeController@test'); //505 - Not Implemented
+$app->router->get('/', 'HomeController@index');
+$app->router->get('/about', 'HomeController@about'); // return view about page with data from database PDOx class
+$app->router->get('/test', 'HomeController@test'); //505 - Not Implemented
 
 //e.g. test 404 - Not Found
-$router->error(function () use ($view) {
-    $view->view('errors/_404', [
+$app->router->error(function () use ($app) {
+    $app->load::view('errors/_404', [
         'statusCode' => '404',
         'messageTitle' => 'Page Not Found',
         'message' => 'Sorry, but the page you were trying to view does not exist.'
     ]);
 });
 
-$router->run(); // run the router
+$app->run(); // run the application
