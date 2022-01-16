@@ -4,6 +4,7 @@ namespace InfinityCore\Core;
 
 use Closure;
 use Exception;
+use InfinityCore\Application\config\AppConfig;
 use InfinityCore\Core\Router\RouterCommand;
 use InfinityCore\Core\Router\RouterException;
 use InfinityCore\Core\Router\RouterRequest;
@@ -76,7 +77,7 @@ class BaseRouter
      * @var array $path Paths of Controllers and Middlewares files
      */
     protected array $paths = [
-        'controllers' => APPPATH.'/controllers',
+        'controllers' => AppConfig::APPPATH.'/controllers',
         'middlewares' => 'Middlewares',
     ];
 

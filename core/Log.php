@@ -3,16 +3,17 @@
 namespace InfinityCore\Core;
 
 use DateTime;
+use InfinityCore\Application\config\AppConfig;
 
 class Log
 {
     # @string, Log directory name
-    private string $path = '/application/logs/';
+    private string $path;
 
     public function __construct()
     {
-        date_default_timezone_set('Europe/Istanbul'); # Set default timezone
-        $this->path = dirname(__DIR__)  . $this->path; # Set path
+        date_default_timezone_set(AppConfig::TIMEZONE); # Set default timezone
+        $this->path = dirname(__DIR__)  . AppConfig::LOGPATH; # Set path
     }
 
     /**

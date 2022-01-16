@@ -2,24 +2,14 @@
 
 namespace InfinityCore\Core;
 use InfinityCore\Core\{BaseModel, BaseRouter, BaseView, PDOx\PDOx};
+use InfinityCore\Application\config\DBConfig;
 
 class Application
 {
     public BaseRouter $router;
     public BaseView $load;
     public BaseModel $model;
-
-    //TODO: create a config class and implement a config values like log path, default time zone and database connection, etc.
-    private array $DBConfig = [
-        'host'		=> 'localhost',
-        'driver'	=> 'mysql',
-        'database'	=> 'testDB',
-        'username'	=> 'root',
-        'password'	=> '',
-        'charset'	=> 'utf8',
-        'collation'	=> 'utf8_general_ci',
-        'prefix'	 => ''
-    ];
+    public BaseConfig $config;
 
     /**
      * Application constructor.
@@ -29,6 +19,7 @@ class Application
         $this->router = new BaseRouter();
         $this->load = new BaseView();
         $this->model = new BaseModel();
+        $this->config = new BaseConfig();
     }
 
     /**
@@ -36,7 +27,7 @@ class Application
      */
     public function PDOx(): PDOx
     {
-        return new PDOx($this->DBConfig);
+        return new PDOx(DBConfig::dbConfig);
     }
 
     public function run()
