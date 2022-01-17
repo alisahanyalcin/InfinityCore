@@ -1,14 +1,13 @@
 <?php
 
 namespace InfinityCore\Core;
-use InfinityCore\Core\{BaseModel, BaseRouter, BaseView, PDOx\PDOx};
+use InfinityCore\Core\{BaseRouter, BaseView, PDOx\PDOx};
 use InfinityCore\Application\config\DBConfig;
 
 class Application
 {
     public BaseRouter $router;
     public BaseView $load;
-    public BaseModel $model;
     public BaseConfig $config;
 
     /**
@@ -18,7 +17,6 @@ class Application
     {
         $this->router = new BaseRouter();
         $this->load = new BaseView();
-        $this->model = new BaseModel();
         $this->config = new BaseConfig();
     }
 

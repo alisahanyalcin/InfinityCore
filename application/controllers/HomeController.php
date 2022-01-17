@@ -19,11 +19,8 @@ class HomeController extends BaseController
 
     public function about()
     {
-        $records = $this->db->table('users')
-            ->select('id, email, name')
-            ->orderBy('id', 'asc')
-            ->limit(20)
-            ->getAll();
+        $records = $this->model->getModel('HomeModel')->getRecords();
+
         $this->load->view('layout/header');
         $this->load->view('about', ['name' => 'About Page', 'records' => $records]);
         $this->load->view('layout/footer');

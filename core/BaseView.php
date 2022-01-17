@@ -3,6 +3,7 @@
 namespace InfinityCore\Core;
 
 use Exception;
+use InfinityCore\Application\config\AppConfig;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -24,7 +25,7 @@ class BaseView
      */
     public static function view(string $template, array $args = [])
     {
-        $loader = new FilesystemLoader(dirname(__DIR__) . '/application/views');
+        $loader = new FilesystemLoader(dirname(__DIR__) . '/'.AppConfig::APPPATH.'/'.AppConfig::VIEWPATH);
         $twig = new Environment($loader);
         echo $twig->render($template.".php", $args);
     }

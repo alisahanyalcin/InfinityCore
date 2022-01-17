@@ -15,6 +15,16 @@ class AppConfig
     const APPPATH = 'application';
 
     /**
+     * Application app path
+     */
+    const VIEWPATH = 'views';
+
+    /**
+     * Application app path
+     */
+    const MODELWPATH = 'models';
+
+    /**
      * Application log path
      */
     const LOGPATH = '/application/logs/';

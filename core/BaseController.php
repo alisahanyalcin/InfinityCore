@@ -14,10 +14,15 @@ class BaseController
      */
     protected BaseView $load;
 
+//    /**
+//     * @var PDOx\PDOx $db
+//     */
+//    protected PDOx\PDOx $db;
+
     /**
-     * @var PDOx\PDOx $db
+     * @var BaseModel $model
      */
-    protected PDOx\PDOx $db;
+    protected BaseModel $model;
 
     /**
      * BaseController constructor.
@@ -26,6 +31,7 @@ class BaseController
     {
         $this->app = new Application();
         $this->load = $this->app->load;
-        $this->db = $this->app->PDOx();
+        $this->model = new BaseModel();
+//        $this->db = $this->app->PDOx();
     }
 }
