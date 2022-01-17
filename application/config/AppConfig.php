@@ -8,7 +8,7 @@ class AppConfig
     const APPPATH = 'application';
     const LOGPATH = '/application/logs/';
     const TIMEZONE = 'Europe/Istanbul';
-    const DEFAULT_LEANGUAGE = 'en';
+    const default_language = 'en';
     const base_url = 'http://localhost/InfinityCore/';
     const dbErrorView = '_db';
     const pageNotFoundErrorView = '_404';
