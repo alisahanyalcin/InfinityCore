@@ -104,8 +104,10 @@ class Pdox
         } catch (PDOException $e) {
             $this->log = new Log(); //Log class
             # Write into log
-            echo $this->log->ExceptionLog('Cannot the connect to Database with PDO. ' . $e->getMessage());
-            die(); //Stop the script
+            if ($this->debug) {
+                $this->log->ExceptionLog('Cannot the connect to Database with PDO. ' . $e->getMessage());
+                die(); //Stop the script
+            }
         }
 
         return $this->pdo;
@@ -770,7 +772,7 @@ class Pdox
     /**
      * @return int
      */
-    public function numRows()
+    public function numRows(): int
     {
         return $this->numRows;
     }
@@ -803,12 +805,12 @@ class Pdox
     }
 
     /**
-     * @param string|bool $type
+     * @param bool|string|null $type
      * @param string|null $argument
      *
      * @return mixed
      */
-    public function get($type = null, $argument = null)
+    public function get(bool|string $type = null, string $argument = null): mixed
     {
         $this->limit = 1;
         $query = $this->getAll(true);

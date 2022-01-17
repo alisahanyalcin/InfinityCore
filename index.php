@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+
 use InfinityCore\Core\Application;
+use InfinityCore\Application\config\AppConfig;
 
 $app = new Application();
 
@@ -10,7 +12,7 @@ $app->router->get('/test', 'HomeController@test'); //505 - Not Implemented
 
 //e.g. test 404 - Not Found
 $app->router->error(function () use ($app) {
-    $app->load::view('errors/_404', [
+    $app->load::view('errors/'.AppConfig::pageNotFoundErrorView, [
         'statusCode' => '404',
         'messageTitle' => 'Page Not Found',
         'message' => 'Sorry, but the page you were trying to view does not exist.'

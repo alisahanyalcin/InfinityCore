@@ -7,6 +7,11 @@ use InfinityCore\Application\config\AppConfig;
 
 class Log
 {
+    /**
+     * @var BaseView $view
+     */
+    protected BaseView $load;
+
     # @string, Log directory name
     private string $path;
 
@@ -26,9 +31,16 @@ class Log
      */
     public function ExceptionLog(string $message, string $sql = ""): string
     {
+        $this->load = new BaseView();
         $exception = 'Unhandled Exception. <br />';
         $exception .= $message;
         $exception .= "<br /> You can find the error back in the log.";
+
+        $this->load::view('errors/'.AppConfig::dbErrorView, [
+            'statusCode' => 'Database Connection Error',
+            'messageTitle' => 'Unhandled Exception',
+            'message' => $message."\nYou can find the error back in the log."
+        ]);
 
         if (!empty($sql)) {
             # Add the Raw SQL to the Log

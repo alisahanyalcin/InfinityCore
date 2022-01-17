@@ -10,4 +10,6 @@ class AppConfig
     const TIMEZONE = 'Europe/Istanbul';
     const DEFAULT_LEANGUAGE = 'en';
     const base_url = 'http://localhost/InfinityCore/';
+    const dbErrorView = '_db';
+    const pageNotFoundErrorView = '_404';
 }
