@@ -1,7 +1,7 @@
 <?php
 
 namespace InfinityCore\Core;
-use InfinityCore\Core\{BaseRouter, BaseView, PDOx\PDOx};
+use InfinityCore\Core\PDOx\PDOx;
 use InfinityCore\Application\config\DBConfig;
 
 class Application
