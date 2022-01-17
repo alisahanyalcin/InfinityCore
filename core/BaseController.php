@@ -14,11 +14,6 @@ class BaseController
      */
     protected BaseView $load;
 
-//    /**
-//     * @var PDOx\PDOx $db
-//     */
-//    protected PDOx\PDOx $db;
-
     /**
      * @var BaseModel $model
      */
