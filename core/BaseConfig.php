@@ -10,9 +10,9 @@ class BaseConfig
     public function __construct()
     {
         // Valid PHP Version?
-        $minPHPVersion = '7.4';
+        $minPHPVersion = '8.0.0';
         if (version_compare(PHP_VERSION, $minPHPVersion, '<'))
-            die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . PHP_VERSION);
+            die("Your PHP version must be {$minPHPVersion} or higher to run InfinityCore. Current version: " . PHP_VERSION);
         unset($minPHPVersion);
 
         switch (AppConfig::ENVIRONMENT)
