@@ -77,7 +77,7 @@ class BaseRouter
      * @var array $path Paths of Controllers and Middlewares files
      */
     protected array $paths = [
-        'controllers' => AppConfig::APPPATH.'/controllers',
+        'controllers' => AppConfig::APPPATH.'/'.AppConfig::CONTROLLERPATH,
         'middlewares' => 'Middlewares',
     ];
 
@@ -171,7 +171,7 @@ class BaseRouter
 
         [$route, $callback] = $params;
         $options = $params[2] ?? null;
-        if (strstr($route, ':')) {
+        if (str_contains($route, ':')) {
             $route1 = $route2 = '';
             foreach (explode('/', $route) as $key => $value) {
                 if ($value != '') {
@@ -215,7 +215,7 @@ class BaseRouter
             return true;
         }
 
-        if (strstr($methods, '|')) {
+        if (str_contains($methods, '|')) {
             foreach (array_unique(explode('|', $methods)) as $method) {
                 if (!empty($method)) {
                     $this->addRoute($route, $method, $callback, $options);

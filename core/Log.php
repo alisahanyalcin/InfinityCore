@@ -18,7 +18,8 @@ class Log
     public function __construct()
     {
         date_default_timezone_set(AppConfig::TIMEZONE); # Set default timezone
-        $this->path = dirname(__DIR__)  . AppConfig::LOGPATH; # Set path
+        $this->path = dirname(__DIR__).'/'.AppConfig::APPPATH.'/'.AppConfig::LOGPATH.'/'; # Set path
+        echo $this->path;
     }
 
     /**

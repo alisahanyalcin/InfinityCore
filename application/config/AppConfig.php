@@ -20,14 +20,19 @@ class AppConfig
     const VIEWPATH = 'views';
 
     /**
-     * Application app path
+     * Application models path
      */
     const MODELWPATH = 'models';
 
     /**
+     * Application controllers path
+     */
+    const CONTROLLERPATH = 'controllers';
+
+    /**
      * Application log path
      */
-    const LOGPATH = '/application/logs/';
+    const LOGPATH = 'logs';
 
     /**
      * System time zone for all date time functions

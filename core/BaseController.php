@@ -27,6 +27,5 @@ class BaseController
         $this->app = new Application();
         $this->load = $this->app->load;
         $this->model = new BaseModel();
-//        $this->db = $this->app->PDOx();
     }
 }
