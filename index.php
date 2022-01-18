@@ -1,10 +1,10 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-use InfinityCore\Core\Application;
+use InfinityCore\Core\Application; // import the application class
 use InfinityCore\Application\config\AppConfig;
 
-$app = new Application();
+$app = new Application(); // Create new application
 
 $app->router->get('/', 'HomeController@index');
 $app->router->get('/about', 'HomeController@about'); // return view about page with data from database PDOx class

@@ -1,4 +1,5 @@
 <?php
+
 namespace InfinityCore\Application\controllers;
 
 use InfinityCore\Core\BaseController;
