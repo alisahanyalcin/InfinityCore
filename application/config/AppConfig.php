@@ -5,6 +5,11 @@ namespace InfinityCore\Application\config;
 class AppConfig
 {
     /**
+     * Base url of the application
+     */
+    const base_url = 'http://localhost/InfinityCore/';
+
+    /**
      * application environment (development, production, testing)
      */
     const ENVIRONMENT = 'production';
@@ -43,11 +48,6 @@ class AppConfig
      * Default system and application language
      */
     const default_language = 'en';
-
-    /**
-     * Base url of the application
-     */
-    const base_url = 'http://localhost/InfinityCore/';
 
     /**
      * database error view name
